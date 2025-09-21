@@ -1,15 +1,16 @@
-# Elysia with Bun runtime
+# Api Auth
 
-## Getting Started
-To get started with this template, simply paste this command into your terminal:
-```bash
-bun create elysia ./elysia-example
-```
+This project is api with
 
-## Development
-To start the development server run:
-```bash
-bun run dev
-```
+- bun
+- elysia
+- better-auth
+- drizzle
+- zod
 
-Open http://localhost:3000/ with your browser to see the result.
+### todo
+
+- [ X ] Add elysia
+- [ ] Add better-auth
+- [ ] Add drizzle
+- [ ] Add biomejs
