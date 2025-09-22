@@ -1,18 +1,32 @@
 import { z } from "zod";
 import { Elysia } from "elysia";
 import { openapi } from "@elysiajs/openapi";
+import { betterAuthPlugin, OpenAPI } from "./http/plugins/better-auth";
 
 const app = new Elysia()
-  .use(openapi())
+  .use(
+    openapi({
+      documentation: {
+        components: await OpenAPI.components,
+        paths: await OpenAPI.getPaths(),
+      },
+    })
+  )
+  .use(betterAuthPlugin)
   .get("/", () => "Hello Elysia")
   .get(
     "/users/:id",
-    ({ params }) => {
+    ({ params, user }) => {
       const userId = params.id;
+
+      const authenticateUserName = user.name;
+
+      console.log({ authenticateUserName });
 
       return { id: userId, name: "Julius Caezar" };
     },
     {
+      auth: true,
       detail: {
         summary: "Get user by ID",
         description: "Retrieve a user by their unique ID",
