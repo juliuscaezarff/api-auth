@@ -11,6 +11,7 @@ This project is api with
 ### todo
 
 - [ X ] Add elysia
-- [ ] Add better-auth
-- [ ] Add drizzle
+- [ X ] Add better-auth
+- [ X ] Add drizzle
+- [ X ] Add docker
 - [ ] Add biomejs
