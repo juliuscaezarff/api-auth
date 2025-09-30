@@ -1,14 +1,14 @@
-import { betterAuth } from "better-auth";
-import { drizzleAdapter } from "better-auth/adapters/drizzle";
-import { openAPI } from "better-auth/plugins";
-import { db } from "./database/client";
+import { betterAuth } from 'better-auth';
+import { drizzleAdapter } from 'better-auth/adapters/drizzle';
+import { openAPI } from 'better-auth/plugins';
+import { db } from './database/client';
 
 export const auth = betterAuth({
-  basePath: "/auth",
-  trustedOrigins: ["http://localhost:3000"],
+  basePath: '/auth',
+  trustedOrigins: ['http://localhost:3000'],
   plugins: [openAPI()],
   database: drizzleAdapter(db, {
-    provider: "pg",
+    provider: 'pg',
     usePlural: true,
   }),
   advanced: {
